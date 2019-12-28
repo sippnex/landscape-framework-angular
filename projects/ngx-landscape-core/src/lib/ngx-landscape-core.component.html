@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="header">
+    <lib-toolbar></lib-toolbar>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    <button *ngIf="isHomeButtonEnabled()" (click)="openDashboard()" mat-fab class="clickable" aria-label="Home">
+      <mat-icon>home</mat-icon>
+    </button>
+  </div>
+</div>

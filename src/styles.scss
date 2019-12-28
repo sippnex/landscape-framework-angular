@@ -1,0 +1,13 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@import 'projects/ngx-landscape-core/landscape-core.scss';
+@import 'projects/ngx-landscape-admin/landscape-admin.scss';

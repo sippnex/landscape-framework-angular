@@ -23,7 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -72,7 +72,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -121,7 +121,92 @@
           }
         }
       }
+    },
+    "ngx-landscape-core": {
+      "projectType": "library",
+      "root": "projects/ngx-landscape-core",
+      "sourceRoot": "projects/ngx-landscape-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-landscape-core/tsconfig.lib.json",
+            "project": "projects/ngx-landscape-core/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-landscape-core/src/test.ts",
+            "tsConfig": "projects/ngx-landscape-core/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-landscape-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-landscape-core/tsconfig.lib.json",
+              "projects/ngx-landscape-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ngx-landscape-admin": {
+      "projectType": "library",
+      "root": "projects/ngx-landscape-admin",
+      "sourceRoot": "projects/ngx-landscape-admin/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-landscape-admin/tsconfig.lib.json",
+            "project": "projects/ngx-landscape-admin/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-landscape-admin/src/test.ts",
+            "tsConfig": "projects/ngx-landscape-admin/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-landscape-admin/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-landscape-admin/tsconfig.lib.json",
+              "projects/ngx-landscape-admin/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
-  "defaultProject": "landscape-framework-angular"
+  "defaultProject": "landscape-framework-angular",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

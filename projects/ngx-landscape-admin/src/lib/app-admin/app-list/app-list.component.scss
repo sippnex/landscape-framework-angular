@@ -1,0 +1,35 @@
+.container {
+
+  display: flex;
+  flex-direction: column;
+
+  .table-header {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 16px;
+  }
+
+  .table-body {
+    flex: 10;
+    overflow-y: scroll;
+
+    .mat-table {
+      width: 100%;
+      background: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .table-footer {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .mat-paginator {
+      background: none !important;
+    }
+  }
+}

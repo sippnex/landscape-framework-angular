@@ -1,0 +1,52 @@
+<div class="outer-container">
+    <div class="inner-container">
+        <div class="app-store-header">
+            <div class="title">
+                App-Store
+            </div>
+            <div class="filter">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Search for App" [value]="filterValue" (keyup)="onFilterInput($event.target.value)">
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clearFilter()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="app-store-content">
+            <div class="app-store-item" *ngFor="let app of filteredApps">
+                <div class="app-icon-wrapper">
+                    <div class="app-icon"></div>
+                    <!--<img *ngIf="app.icon; else noIcon" class="app-icon" [src]="app.icon">
+                    <ng-template #noIcon><img class="app-icon" src="../../../assets/img/base-app-icon.png">
+                    </ng-template>>-->
+                </div>
+                <div class="app-title">
+                    {{app.name}}
+                </div>
+                <div class="app-description">
+                    <p>
+                        Id: {{app.id}}<br />
+                        Type: {{app.type}}
+                    </p>
+                </div>
+                <div class="app-controls">
+
+                    <button mat-raised-button
+                        color="primary"
+                        *ngIf="!app.subscribed; else appSubscribed"
+                        (click)="subscribeApp(app)">
+                        <mat-icon>done</mat-icon>
+                        Subscribe
+                    </button>
+                    <ng-template #appSubscribed>
+                        <button mat-raised-button color="accent" (click)="unsubscribeApp(app)">
+                            <mat-icon>close</mat-icon>
+                            Unsubscribe
+                        </button>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

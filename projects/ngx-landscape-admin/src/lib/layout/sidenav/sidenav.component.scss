@@ -1,0 +1,18 @@
+.sidenav-item {
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+}
+
+.disabled {
+  cursor: default;
+  color: rgba(0, 0, 0, .5) !important;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+
+}
