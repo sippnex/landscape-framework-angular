@@ -1,0 +1,58 @@
+.container {
+
+  display: flex;
+  flex-direction: column;
+
+  .mat-stepper-horizontal {
+    background-color: transparent;
+  }
+
+  .app-type {
+
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #aeaeae;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    cursor: pointer;
+    transition: .25s all;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: #efefef;
+    }
+
+    .icon-wrapper {
+      width: 80%;
+      max-height: 75px;
+      margin: 10%;
+
+      .icon {
+        width: 100%;
+        max-height: 75px;
+      }
+
+    }
+
+    .info-wrapper {
+
+      padding-top: 10px;
+
+      .name {
+        font-size: 30px;
+        font-weight: bold;
+        display: block;
+      }
+
+      .description {
+        display: block;
+      }
+
+    }
+
+    .selection-wrapper {
+      margin-top: 10px;
+    }
+
+  }
+
+}

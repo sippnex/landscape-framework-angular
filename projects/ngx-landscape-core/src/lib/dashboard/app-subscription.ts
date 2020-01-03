@@ -1,5 +1,5 @@
 import {GridsterItem} from 'angular-gridster2';
-import {App} from '../base-app/app.interface';
+import {App} from 'ngx-landscape-core';
 
 export class AppSubscription implements GridsterItem {
 

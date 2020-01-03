@@ -4,17 +4,17 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {plainToClass} from 'class-transformer';
 import {AppSubscription} from './app-subscription';
-import {LandscapeCoreConfig} from '../ngx-landscape-core.module';
+import {LandscapeConfig} from '../ngx-landscape-core.module';
 import {AppRegistryService} from '../app-registry.service';
 
 @Injectable()
 export class DashboardService {
 
-  constructor(@Inject('lsCoreConfig') private lsCoreConfig: LandscapeCoreConfig, private http: HttpClient, private appRegistryService: AppRegistryService) {
+  constructor(@Inject('lsConfig') private lsConfig: LandscapeConfig, private http: HttpClient, private appRegistryService: AppRegistryService) {
   }
 
   public getAllAppSubscriptions(): Observable<AppSubscription[]> {
-    return this.http.get(this.lsCoreConfig.landscapeApi + '/core/app-subs').pipe(map((data: any) => {
+    return this.http.get(this.lsConfig.api + '/core/app-subs').pipe(map((data: any) => {
       return this.parseAppSubscriptionArray(data);
     }));
   }
@@ -26,7 +26,7 @@ export class DashboardService {
       .set('y', y.toString())
       .set('rows', rows.toString())
       .set('cols', cols.toString());
-    this.http.get(this.lsCoreConfig.landscapeApi + '/core/app-subs/update-app-position', {params: params}).subscribe(() => {
+    this.http.get(this.lsConfig.api + '/core/app-subs/update-app-position', {params: params}).subscribe(() => {
     });
   }
 

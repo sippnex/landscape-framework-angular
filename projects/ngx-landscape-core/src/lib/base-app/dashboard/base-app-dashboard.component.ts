@@ -1,7 +1,7 @@
 import {Component, Injector, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NamingConverter} from '../../shared/util/converter/naming-converter';
-import {App} from '../app.interface';
+import {App} from '../../..';
 
 @Component({
   selector: 'lib-base-app-dashboard',

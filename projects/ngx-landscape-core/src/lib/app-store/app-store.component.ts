@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppStoreService } from './app-store.service';
-import {App} from '../base-app/app.interface';
+import {App} from 'ngx-landscape-core';
 
 @Component({
   selector: 'lib-app-store',

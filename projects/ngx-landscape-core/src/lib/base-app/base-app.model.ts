@@ -1,4 +1,4 @@
-import {App} from './app.interface';
+import {App} from '../..';
 
 export class BaseApp implements App {
   id: string;

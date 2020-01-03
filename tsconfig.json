@@ -19,16 +19,10 @@
     ],
     "paths": {
       "ngx-landscape-core": [
-        "dist/ngx-landscape-core"
-      ],
-      "ngx-landscape-core/*": [
-        "dist/ngx-landscape-core/*"
+        "projects/ngx-landscape-core/src"
       ],
       "ngx-landscape-admin": [
-        "dist/ngx-landscape-admin"
-      ],
-      "ngx-landscape-admin/*": [
-        "dist/ngx-landscape-admin/*"
+        "projects/ngx-landscape-admin/src"
       ]
     }
   }

@@ -1,7 +1,6 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {DashboardHostDirective} from './dashboard-host.directive';
-import {BaseAppDashboardComponent} from '../../base-app/dashboard/base-app-dashboard.component';
-import {App} from '../../base-app/app.interface';
+import {App, BaseAppDashboardComponent} from 'ngx-landscape-core';
 import {AppRegistryService} from '../../app-registry.service';
 
 @Component({

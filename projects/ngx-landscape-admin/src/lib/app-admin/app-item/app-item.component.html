@@ -1,3 +1,27 @@
 <div class="container">
-  app-item works!
+
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step *ngIf="firstStepEnabled">
+      <ng-template matStepLabel>Select App Type</ng-template>
+
+      <div class="app-type" *ngFor="let appType of appTypes">
+        <div class="icon-wrapper">
+          <img alt="" class="icon">
+        </div>
+        <div class="info-wrapper">
+                          <span class="name">
+                            {{appType.name}}
+                          </span>
+          <span class="description">
+                            Some short description about the app image for the admin (what functions, attributes, use cases etc.)
+                          </span>
+        </div>
+      </div>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Configure App</ng-template>
+    </mat-step>
+  </mat-horizontal-stepper>
+
 </div>

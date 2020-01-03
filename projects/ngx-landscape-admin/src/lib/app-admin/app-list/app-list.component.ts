@@ -1,9 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, PageEvent} from '@angular/material';
 import {AppAdminService} from '../app-admin.service';
-import {RestApiPagingConfig} from '../../shared/util/rest-api-paging/rest-api-paging-config';
-import {RestApiPage} from '../../shared/util/rest-api-paging/rest-api-page';
-import {BaseApp} from '../base-app.model';
+import {Router} from '@angular/router';
+import {App, RestApiPage, RestApiPagingConfig} from 'ngx-landscape-core';
 
 @Component({
   selector: 'lib-app-list',
@@ -20,7 +19,7 @@ export class AppListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private appAdminService: AppAdminService) {
+  constructor(private router: Router, private appAdminService: AppAdminService) {
   }
 
   ngOnInit() {
@@ -35,7 +34,7 @@ export class AppListComponent implements OnInit {
   }
 
   getApps(pagingConfig: RestApiPagingConfig) {
-    this.appAdminService.getAllApps(pagingConfig).subscribe((appPage: RestApiPage<BaseApp>) => {
+    this.appAdminService.getAllApps(pagingConfig).subscribe((appPage: RestApiPage<App>) => {
       this.dataSource = appPage.content;
       this.updatePaginator(appPage.size, appPage.page, appPage.length);
     });
@@ -61,6 +60,14 @@ export class AppListComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  editApp(appId: string) {
+    this.router.navigateByUrl('/admin/app-item/' + appId);
+  }
+
+  createApp() {
+    this.router.navigateByUrl('/admin/app-item');
   }
 
 }

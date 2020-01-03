@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {AppRegistryService, AppType} from 'ngx-landscape-core';
 
 @Component({
   selector: 'lib-app-item',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppItemComponent implements OnInit {
 
-  constructor() { }
+  firstStepEnabled = false;
+  appTypes: AppType[] = [];
+
+  constructor(private route: ActivatedRoute, private appRegistryService: AppRegistryService) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params) => {
+      const appId = params['id'];
+      if (appId) {
+         // TODO: fetch app from API
+      } else  {
+        this.firstStepEnabled = true;
+        this.appTypes = this.appRegistryService.getAllAppTypes();
+      }
+    });
   }
 
 }

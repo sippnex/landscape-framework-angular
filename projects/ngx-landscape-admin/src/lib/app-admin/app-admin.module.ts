@@ -2,8 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppListComponent } from './app-list/app-list.component';
 import { AppItemComponent } from './app-item/app-item.component';
-import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule, MatTableModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatStepperModule,
+  MatTableModule
+} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import {AppAdminService} from './app-admin.service';
 
 @NgModule({
   imports: [
@@ -14,9 +23,11 @@ import {HttpClientModule} from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatStepperModule
   ],
   declarations: [AppListComponent, AppItemComponent],
-  exports: [AppListComponent]
+  exports: [AppListComponent],
+  providers: [AppAdminService]
 })
 export class AppAdminModule { }

@@ -1,20 +1,21 @@
 import {Inject, Injectable, Type} from '@angular/core';
 import {plainToClass} from 'class-transformer';
 import {Router, Routes} from '@angular/router';
-import {AppType, LandscapeCoreConfig} from './ngx-landscape-core.module';
-import {App} from './base-app/app.interface';
+import {AppType, LandscapeConfig} from './ngx-landscape-core.module';
 import {BaseApp} from './base-app/base-app.model';
+import {RestApiPage} from './shared/util/rest-api-paging/rest-api-page';
+import {App} from './app-host/app.interface';
 
 @Injectable()
 export class AppRegistryService {
 
-  constructor(@Inject('lsCoreConfig') private lsCoreConfig: LandscapeCoreConfig, private router: Router) {
+  constructor(@Inject('lsConfig') private lsConfig: LandscapeConfig, private router: Router) {
     this.initAppRoutes();
   }
 
   public initAppRoutes() {
     const appRoutes: Routes = [];
-    this.lsCoreConfig.appTypes.forEach(appType => appRoutes.push({
+    this.lsConfig.appTypes.forEach(appType => appRoutes.push({
       path: appType.route + '/:id',
       component: appType.mainComponent
     }));
@@ -23,8 +24,16 @@ export class AppRegistryService {
       .find(childRoute => childRoute.path === 'apps').children = appRoutes;
   }
 
+  public getAllAppTypes(): AppType[] {
+    return this.lsConfig.appTypes;
+  }
+
   public getAppType(typeName: string): AppType {
-    return this.lsCoreConfig.appTypes.find(appType => appType.name === typeName);
+    return this.lsConfig.appTypes.find(appType => appType.name === typeName);
+  }
+
+  public parseAppPage(data: any): RestApiPage<App> {
+    return new RestApiPage<App>(data.number, data.size, data.totalElements, this.parseAppArray(data.content));
   }
 
   public parseAppArray(data: any): App[] {

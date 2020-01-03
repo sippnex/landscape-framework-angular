@@ -6,7 +6,7 @@
     "build-core": "ng build ngx-landscape-core && cp projects/ngx-landscape-core/landscape-core.scss dist/ngx-landscape-core",
     "start-admin": "ng build ngx-landscape-admin && cp projects/ngx-landscape-admin/landscape-admin.scss dist/ngx-landscape-admin && ng serve",
     "build-admin": "ng build ngx-landscape-admin && cp projects/ngx-landscape-admin/landscape-admin.scss dist/ngx-landscape-admin",
-    "start": "ng build ngx-landscape-core && cp projects/ngx-landscape-core/landscape-core.scss dist/ngx-landscape-core && ng build ngx-landscape-admin && cp projects/ngx-landscape-admin/landscape-admin.scss dist/ngx-landscape-admin && ng serve"
+    "start": "ng serve"
   },
   "private": true,
   "dependencies": {

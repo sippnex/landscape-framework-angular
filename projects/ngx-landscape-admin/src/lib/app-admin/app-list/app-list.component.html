@@ -36,11 +36,11 @@
         <td mat-cell *matCellDef="let element"> {{element.icon}} </td>
       </ng-container>
 
-      <!-- Icon Column -->
+      <!-- Controls Column -->
       <ng-container matColumnDef="controls">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button color="primary" style="float: right"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button color="primary" style="float: right" (click)="editApp(element.id)"><mat-icon>edit</mat-icon></button>
         </td>
       </ng-container>
 
@@ -52,7 +52,7 @@
 
   <div class="table-footer">
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons (page)="loadPage($event)"></mat-paginator>
-    <button mat-fab color="accent"><mat-icon>add</mat-icon></button>
+    <button mat-fab color="accent" (click)="createApp()"><mat-icon>add</mat-icon></button>
     <!--<button mat-raised-button color="accent"><mat-icon>add</mat-icon> New App</button>-->
   </div>
 

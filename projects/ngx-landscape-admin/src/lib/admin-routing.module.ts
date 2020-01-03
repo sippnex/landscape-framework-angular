@@ -3,12 +3,12 @@ import {RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AppListComponent} from './app-admin/app-list/app-list.component';
 import {AppItemComponent} from './app-admin/app-item/app-item.component';
-import {NgxLandscapeAdminComponent} from './ngx-landscape-admin.component';
+import {AdminComponent} from './admin.component';
 
 const adminRoutes: any = [
   {
     path: 'admin',
-    component: NgxLandscapeAdminComponent,
+    component: AdminComponent,
     children: [
       {
         path: '',
@@ -22,6 +22,10 @@ const adminRoutes: any = [
       {
         path: 'app-list',
         component: AppListComponent
+      },
+      {
+        path: 'app-item',
+        component: AppItemComponent
       },
       {
         path: 'app-item/:id',
@@ -38,4 +42,4 @@ const adminRoutes: any = [
   declarations: [],
   exports: [RouterModule]
 })
-export class NgxLandscapeAdminRoutingModule { }
+export class AdminRoutingModule { }

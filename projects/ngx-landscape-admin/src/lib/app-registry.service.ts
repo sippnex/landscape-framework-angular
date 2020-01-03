@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+/*import {Inject, Injectable} from '@angular/core';
 import {plainToClass} from 'class-transformer';
 import {AppType, LandscapeAdminConfig} from './ngx-landscape-admin.module';
 import {App} from './app-admin/app.interface';
@@ -31,3 +31,4 @@ export class AppRegistryService {
   }
 
 }
+*/

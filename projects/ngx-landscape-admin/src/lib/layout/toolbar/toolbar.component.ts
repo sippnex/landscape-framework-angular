@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import {ThemeService} from '../../shared/theme/theme.service';
+import {ThemeService} from 'ngx-landscape-core';
 
 @Component({
   selector: 'lib-toolbar',

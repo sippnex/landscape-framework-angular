@@ -5,11 +5,11 @@ import {ThemeService} from './shared/theme/theme.service';
 import {OverlayContainer} from '@angular/cdk/overlay';
 
 @Component({
-  selector: 'lib-landscape-admin',
-  templateUrl: './ngx-landscape-admin.component.html',
-  styleUrls: ['./ngx-landscape-admin.component.scss']
+  selector: 'lib-core',
+  templateUrl: './core.component.html',
+  styleUrls: ['./core.component.scss']
 })
-export class NgxLandscapeAdminComponent implements OnInit {
+export class CoreComponent  implements OnInit {
 
   private activeTheme: any;
 
@@ -21,6 +21,14 @@ export class NgxLandscapeAdminComponent implements OnInit {
   ngOnInit() {
     this.themeChanged(this.themeService.getActiveTheme());
     this.themeService.onActiveThemeChanged().subscribe(theme => this.themeChanged(theme));
+  }
+
+  isHomeButtonEnabled(): boolean {
+    return this.router.url !== '/core/dashboard';
+  }
+
+  openDashboard() {
+    this.router.navigateByUrl('/core/dashboard');
   }
 
   themeChanged(theme: any) {

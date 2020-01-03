@@ -1,9 +1,9 @@
 import {ModuleWithProviders, NgModule, Type} from '@angular/core';
-import {NgxLandscapeCoreComponent} from './ngx-landscape-core.component';
+import {CoreComponent} from './core.component';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {MatButtonModule, MatIconModule} from '@angular/material';
-import {NgxLandscapeCoreRoutingModule} from './ngx-landscape-core-routing.module';
+import {CoreRoutingModule} from './core-routing.module';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {LayoutModule} from './layout/layout.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -17,8 +17,8 @@ import {AppHostModule} from './app-host/app-host.module';
 import {BaseAppComponent} from './base-app/main/base-app.component';
 import {BaseAppDashboardComponent} from './base-app/dashboard/base-app-dashboard.component';
 import {RouterBufferModule} from './router-buffer/router-buffer.module';
-import {App} from './base-app/app.interface';
 import {AppRegistryService} from './app-registry.service';
+import {App} from './app-host/app.interface';
 
 export interface AppType {
   name: string;
@@ -28,8 +28,8 @@ export interface AppType {
   dashboardComponent?: Type<BaseAppDashboardComponent>;
 }
 
-export interface LandscapeCoreConfig {
-  landscapeApi?: string;
+export interface LandscapeConfig {
+  api?: string;
   appTypes?: AppType[];
 }
 
@@ -39,7 +39,7 @@ export interface LandscapeCoreConfig {
     RouterModule,
     MatButtonModule,
     MatIconModule,
-    NgxLandscapeCoreRoutingModule,
+    CoreRoutingModule,
     LayoutModule,
     AppHostModule,
     DashboardModule,
@@ -47,26 +47,26 @@ export interface LandscapeCoreConfig {
     RouterBufferModule
   ],
   declarations: [
-    NgxLandscapeCoreComponent
+    CoreComponent
   ],
   exports: [
-    NgxLandscapeCoreComponent
+    CoreComponent
   ]
 })
 export class NgxLandscapeCoreModule {
 
-  static withConfig(lsCoreConfig: LandscapeCoreConfig): ModuleWithProviders {
+  static withConfig(lsConfig: LandscapeConfig): ModuleWithProviders {
 
-    // Landscape Api validation
-    if (!lsCoreConfig.landscapeApi) {
-      lsCoreConfig.landscapeApi = '';
+    // Api validation
+    if (!lsConfig.api) {
+      lsConfig.api = '';
     }
 
     // App Types validation
-    if (!lsCoreConfig.appTypes) {
-      lsCoreConfig.appTypes = [];
+    if (!lsConfig.appTypes) {
+      lsConfig.appTypes = [];
     } else {
-      lsCoreConfig.appTypes.forEach(appType => {
+      lsConfig.appTypes.forEach(appType => {
         if (!appType.mainComponent) { appType.mainComponent = BaseAppComponent; }
         if (!appType.dashboardComponent) { appType.dashboardComponent = BaseAppDashboardComponent; }
       });
@@ -81,7 +81,7 @@ export class NgxLandscapeCoreModule {
         AppStoreService,
         BaseAppService,
         { provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true },
-        { provide: 'lsCoreConfig', useValue: lsCoreConfig }
+        { provide: 'lsConfig', useValue: lsConfig }
       ]
     };
   }

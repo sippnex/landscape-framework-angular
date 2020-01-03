@@ -21,7 +21,7 @@ import {AppRoutingModule} from './app-routing.module';
     AppRoutingModule,
     SampleAppModule,
     NgxLandscapeCoreModule.withConfig({
-      landscapeApi: environment.landscapeApi,
+      api: environment.landscapeApi,
       appTypes: [
         {
           name: 'SampleApp',
@@ -32,15 +32,7 @@ import {AppRoutingModule} from './app-routing.module';
         }
       ]
     }),
-    NgxLandscapeAdminModule.withConfig({
-      landscapeApi: environment.landscapeApi,
-      appTypes: [
-        {
-          name: 'SampleApp',
-          appClazz: SampleApp
-        }
-      ]
-    })
+    NgxLandscapeAdminModule
   ],
   declarations: [
     AppComponent

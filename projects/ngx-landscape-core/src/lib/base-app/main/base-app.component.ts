@@ -1,7 +1,7 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BaseAppService} from '../base-app.service';
-import {App} from '../app.interface';
+import {App} from '../../..';
 
 @Component({
   selector: 'lib-base-app',
