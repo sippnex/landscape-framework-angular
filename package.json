@@ -23,6 +23,8 @@
     "@angular/router": "^8.2.14",
     "angular-gridster2": "^8.2.0",
     "class-transformer": "^0.2.3",
+    "ngx-firemaw-client": "^1.3.0",
+    "ngx-fileblade-client": "^0.6.0",
     "core-js": "^3.5.0",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.5.3",

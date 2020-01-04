@@ -6,25 +6,35 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatListModule,
   MatPaginatorModule,
   MatStepperModule,
   MatTableModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {AppAdminService} from './app-admin.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FilebladeConfig, FilebladeModule} from 'ngx-fileblade-client';
+import {FiremawModule} from '../shared/firemaw/firemaw.module';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    MatStepperModule
+    MatStepperModule,
+    MatListModule,
+    FiremawModule,
+    FilebladeModule.forRoot({
+      url: 'http://localhost:8080'
+      } as FilebladeConfig)
   ],
   declarations: [AppListComponent, AppItemComponent],
   exports: [AppListComponent],
