@@ -7,8 +7,7 @@ import {catchError} from 'rxjs/operators';
 export class CustomHttpInterceptor implements HttpInterceptor {
 
   private headers: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Basic ' + btoa('admin:admin'),
-    'Content-Type': 'application/json; charset=UTF-8'
+    'Authorization': 'Basic ' + btoa('admin:admin')
   });
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

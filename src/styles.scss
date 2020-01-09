@@ -1,3 +1,4 @@
+
 html, body {
   height: 100%;
 }
@@ -9,5 +10,6 @@ body {
   background-attachment: fixed;
 }
 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import 'projects/ngx-landscape-core/landscape-core.scss';
 @import 'projects/ngx-landscape-admin/landscape-admin.scss';
