@@ -2,7 +2,7 @@ import {ModuleWithProviders, NgModule, Type} from '@angular/core';
 import {CoreComponent} from './core.component';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {MatButtonModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatMenuModule} from '@angular/material';
 import {CoreRoutingModule} from './core-routing.module';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {LayoutModule} from './layout/layout.module';

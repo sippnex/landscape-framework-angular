@@ -23,6 +23,10 @@ export class AdminComponent implements OnInit {
     this.themeService.onActiveThemeChanged().subscribe(theme => this.themeChanged(theme));
   }
 
+  openDashboard() {
+    this.router.navigateByUrl('/core/dashboard');
+  }
+
   themeChanged(theme: any) {
     this.document.getElementById('theme').setAttribute('href', theme.cssFile);
     this.overlayContainer.getContainerElement().classList.replace(this.activeTheme ? this.activeTheme.name : null, theme.name);

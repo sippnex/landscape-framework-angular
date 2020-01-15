@@ -19,6 +19,10 @@ export class ToolbarComponent implements OnInit {
     this.router.navigateByUrl('/core/app-store');
   }
 
+  openAdminDashboard() {
+    this.router.navigateByUrl('/admin/dashboard');
+  }
+
   changeTheme() {
     this.themeService.setActiveTheme(this.getRandomInt(1, 5));
   }

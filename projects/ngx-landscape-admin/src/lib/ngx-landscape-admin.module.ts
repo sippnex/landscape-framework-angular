@@ -7,12 +7,15 @@ import {DashboardModule} from './dashboard/dashboard.module';
 import {AppAdminModule} from './app-admin/app-admin.module';
 import {AdminRoutingModule} from './admin-routing.module';
 import {AdminComponent} from './admin.component';
+import {MatButtonModule, MatIconModule} from '@angular/material';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule,
+    MatButtonModule,
+    MatIconModule,
     AdminRoutingModule,
     LayoutModule,
     DashboardModule,

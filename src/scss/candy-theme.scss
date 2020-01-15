@@ -1,0 +1,43 @@
+@import 'node_modules/@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-primary: mat-palette($mat-indigo);
+$candy-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-theme: mat-light-theme($candy-primary, $candy-accent, $candy-warn);
+
+:root {
+  --color-primary: #{mat-color($candy-primary)};
+  --color-accent: #{mat-color($candy-accent)};
+}
+
+.candy-theme {
+  @include angular-material-theme($candy-theme);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: darken(mat-color($candy-primary), 20);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: mat-color($candy-primary, 0.8);
+}
+
+body {
+  background: linear-gradient(to bottom, mat-color($candy-primary), mat-color($candy-accent, 0.8), mat-color($candy-primary)),url('../img/background.jpg');
+}
+

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatButtonModule, MatIconModule, MatListModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatListModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
@@ -10,7 +10,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatListModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ],
   declarations: [
     ToolbarComponent,

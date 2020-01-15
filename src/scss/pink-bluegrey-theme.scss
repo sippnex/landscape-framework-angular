@@ -1,0 +1,34 @@
+@import 'node_modules/@angular/material/theming';
+@include mat-core();
+
+// pink-bluegrey theme:
+$primary: mat-palette($mat-pink);
+$accent: mat-palette($mat-blue-grey);
+$theme: mat-dark-theme($primary, $accent);
+
+:root {
+  --color-primary: #{mat-color($primary)};
+  --color-accent: #{mat-color($accent)};
+}
+
+.pink-bluegrey-theme {
+  @include angular-material-theme($theme);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: darken(mat-color($primary), 20);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: mat-color($primary, 0.8);
+}
+
+body {
+  background: linear-gradient(to bottom, mat-color($primary), mat-color($accent, 0.8), mat-color($primary)),url('../img/background.jpg');
+  //background-image: linear-gradient(to right bottom, rgba(34, 42, 105, 0.8), rgba(83, 136, 181, 0.8)),url('./assets/img/background.jpg');
+  //background-image: linear-gradient(to right bottom, rgba(98, 96, 87, 0.8), rgba(193, 163, 103, 0.8)),url('./assets/img/background.jpg');
+  //background-image: linear-gradient(to right bottom, rgba(98, 96, 87, 0.8), rgba(255, 220, 0, 0.8)),url('./assets/img/background.jpg');
+  //background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8)),url('./assets/img/background.jpg');
+}

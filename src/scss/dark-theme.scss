@@ -1,0 +1,35 @@
+@import 'node_modules/@angular/material/theming';
+@include mat-core();
+
+// Dark theme
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+:root {
+  --color-primary: #{mat-color($dark-primary)};
+  --color-accent: #{mat-color($dark-accent)};
+}
+
+.dark-theme {
+  @include angular-material-theme($dark-theme);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: darken(mat-color($dark-primary), 20);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: mat-color($dark-primary, 0.8);
+}
+
+body {
+  background: linear-gradient(to bottom, mat-color($dark-primary), mat-color($dark-accent, 0.8), mat-color($dark-primary)),url('../img/background.jpg');
+  //background-image: linear-gradient(to right bottom, rgba(34, 42, 105, 0.8), rgba(83, 136, 181, 0.8)),url('./assets/img/background.jpg');
+  //background-image: linear-gradient(to right bottom, rgba(98, 96, 87, 0.8), rgba(193, 163, 103, 0.8)),url('./assets/img/background.jpg');
+  //background-image: linear-gradient(to right bottom, rgba(98, 96, 87, 0.8), rgba(255, 220, 0, 0.8)),url('./assets/img/background.jpg');
+  //background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8)),url('./assets/img/background.jpg');
+}

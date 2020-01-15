@@ -2,9 +2,9 @@
   "name": "landscape-framework-angular",
   "version": "0.0.0",
   "scripts": {
-    "build-core": "ng build ngx-landscape-core && cp projects/ngx-landscape-core/landscape-core.scss dist/ngx-landscape-core",
-    "build-admin": "ng build ngx-landscape-admin && cp projects/ngx-landscape-admin/landscape-admin.scss dist/ngx-landscape-admin",
-    "start": "ng serve"
+    "build-core": "node-sass src/scss/ -o src/assets/css/ && ng build ngx-landscape-core && cp projects/ngx-landscape-core/landscape-core.scss dist/ngx-landscape-core",
+    "build-admin": "node-sass src/scss/ -o src/assets/css/ && ng build ngx-landscape-admin && cp projects/ngx-landscape-admin/landscape-admin.scss dist/ngx-landscape-admin",
+    "start": "node-sass src/scss/ -o src/assets/css/ && ng serve"
   },
   "private": true,
   "dependencies": {
