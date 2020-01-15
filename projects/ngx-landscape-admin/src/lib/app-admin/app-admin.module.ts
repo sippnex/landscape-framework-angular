@@ -16,6 +16,7 @@ import {AppAdminService} from './app-admin.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilebladeConfig, FilebladeModule} from 'ngx-fileblade-client';
 import {FiremawModule} from '../shared/firemaw/firemaw.module';
+import {DialoguesModule} from '../shared/dialogues/dialogues.module';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import {FiremawModule} from '../shared/firemaw/firemaw.module';
     FiremawModule,
     FilebladeModule.forRoot({
       url: 'http://localhost:8080'
-      } as FilebladeConfig)
+      } as FilebladeConfig),
+    DialoguesModule
   ],
   declarations: [AppListComponent, AppItemComponent],
   exports: [AppListComponent],

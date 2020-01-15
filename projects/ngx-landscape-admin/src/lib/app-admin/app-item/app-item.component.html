@@ -69,8 +69,8 @@
       </div>
 
       <div class="app-item-controls">
-        <button mat-raised-button><mat-icon>check</mat-icon> Save</button>
-        <button mat-raised-button color="accent"><mat-icon>close</mat-icon> Cancel</button>
+        <button mat-raised-button (click)="saveApp()"><mat-icon>check</mat-icon> Save</button>
+        <button mat-raised-button (click)="goBack()" color="accent"><mat-icon>close</mat-icon> Cancel</button>
       </div>
 
     </mat-step>

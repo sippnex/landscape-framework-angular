@@ -36,6 +36,14 @@ export class AppAdminService {
     return this.firemawService.get(this.lsConfig.api + '/admin/apps/skeleton/' + appType.name);
   }
 
+  public createApp(appFiremawDto: FiremawDto): Observable<any> {
+    return this.firemawService.post(this.lsConfig.api + '/admin/apps', appFiremawDto);
+  }
+
+  public updateApp(appFiremawDto: FiremawDto): Observable<any> {
+    return this.firemawService.put(this.lsConfig.api + '/admin/apps', appFiremawDto);
+  }
+
   public getPagingConfig(): RestApiPagingConfig {
     return this.currentAppsPagingConfig;
   }

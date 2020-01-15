@@ -43,11 +43,8 @@
       display: block;
       color: black;
 
-      .rich-text-field-description {
-        color: rgba(0,0,0,.54);
-        white-space: nowrap;
-        font-size: 13px;
-        font-family: Roboto, "Helvetica Neue", sans-serif;
+      textarea {
+        border-bottom: 1px solid gray;
       }
     }
 

@@ -16,7 +16,7 @@ export class FiremawService {
     }));
   }
 
-  public post(url: string, firemawDto?: FiremawDto) {
+  public post(url: string, firemawDto?: FiremawDto): Observable<any> {
     return this.http.post(url, firemawDto);
   }
 
